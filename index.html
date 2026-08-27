@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>التنظيم السنوي للأسابيع الدراسية - مدارس الريادة 2026/2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#00693E;
+    --green-dark:#004D2C;
+    --red:#C1272D;
+    --gold:#B8902E;
+    --cream:#FBF7EE;
+    --card:#FFFFFF;
+    --ink:#25291F;
+    --ink-soft:#5B6154;
+    --line:#E4DCC8;
+    --blue:#2E5C8A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Tajawal',sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:980px;margin:0 auto;padding:0 0 60px;}
+
+  header{
+    background:linear-gradient(160deg,var(--green-dark) 0%,var(--green) 55%,var(--green-dark) 100%);
+    color:#fff;
+    padding:36px 28px 40px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header::before, header::after{
+    content:"";
+    position:absolute;
+    width:260px;height:260px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:50%;
+    top:-120px; left:-100px;
+  }
+  header::after{ left:auto; right:-140px; top:auto; bottom:-160px; }
+  .eyebrow{
+    font-size:13px; letter-spacing:.12em;
+    color:#EADFBB; opacity:.9; margin-bottom:6px;
+    font-weight:500;
+  }
+  .ministry{ font-size:20px; font-weight:700; margin:0 0 20px; }
+  .title-ar{
+    font-family:'Amiri',serif;
+    font-size:30px;
+    font-weight:700;
+    margin:0 0 8px;
+    line-height:1.5;
+  }
+  .subtitle{
+    display:inline-block;
+    margin-top:10px;
+    background:var(--gold);
+    color:#2b2205;
+    font-weight:700;
+    padding:6px 22px;
+    border-radius:30px;
+    font-size:15px;
+    letter-spacing:.02em;
+  }
+
+  .legend{
+    display:flex; flex-wrap:wrap; gap:10px 22px;
+    justify-content:center;
+    padding:18px 20px;
+    background:var(--card);
+    border-bottom:1px solid var(--line);
+    font-size:13px;
+    color:var(--ink-soft);
+  }
+  .legend span{display:inline-flex;align-items:center;gap:6px;}
+  .dot{width:11px;height:11px;border-radius:3px;display:inline-block;}
+
+  .entry-block{
+    margin:26px 20px 0;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.03);
+  }
+  .entry-block h2{
+    margin:0;
+    background:var(--green-dark);
+    color:#fff;
+    font-size:15px;
+    padding:12px 18px;
+    font-weight:700;
+  }
+  .entry-row{
+    display:flex; gap:14px;
+    padding:12px 18px;
+    border-top:1px dashed var(--line);
+    font-size:14px;
+    align-items:baseline;
+  }
+  .entry-row:first-of-type{border-top:none;}
+  .entry-date{
+    flex:0 0 150px;
+    color:var(--green-dark);
+    font-weight:700;
+    font-size:13.5px;
+  }
+  .entry-text{color:var(--ink);}
+
+  .timeline{ position:relative; margin:34px 20px 0; padding-right:26px; }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    right:6px; top:6px; bottom:6px;
+    width:3px;
+    background:linear-gradient(var(--green), var(--blue), var(--green));
+    border-radius:3px;
+    opacity:.35;
+  }
+
+  .phase{ position:relative; margin-bottom:22px; }
+  .phase-marker{
+    position:absolute;
+    right:-2px; top:2px;
+    width:15px;height:15px;
+    border-radius:50%;
+    background:var(--green);
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 2px var(--green);
+  }
+  .phase-card{
+    margin-right:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:14px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,.03);
+  }
+  .phase-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 18px;
+    background:var(--green-dark);
+    color:#fff;
+  }
+  .phase-head .num{ font-family:'Amiri',serif; font-weight:700; font-size:17px; }
+  .phase-head .label{ font-size:12.5px; opacity:.85; font-weight:500; }
+
+  table.weeks{ width:100%; border-collapse:collapse; font-size:13.5px; }
+  table.weeks td{ padding:10px 16px; border-top:1px solid var(--line); vertical-align:top; }
+  table.weeks tr:first-child td{ border-top:none; }
+  td.wk{ width:70px; white-space:nowrap; font-weight:700; color:var(--green-dark); font-size:13px; }
+  td.dt{ width:150px; color:var(--ink-soft); font-weight:500; white-space:nowrap; }
+  td.act{ color:var(--ink); }
+
+  tr.support td.act{ color:#1f5c3c; }
+  tr.support{ background:#EAF6EE; }
+  tr.new{ background:#fff; }
+  tr.synth{ background:#FDF3DC; }
+  tr.synth td.wk{ color:#8a6a12; }
+  tr.eval{ background:#FDF3DC; }
+
+  .event-tag{
+    margin:0 16px 10px;
+    background:#F3F0E4;
+    border-right:3px solid var(--gold);
+    padding:7px 12px;
+    font-size:12.5px;
+    color:#6b5b22;
+    border-radius:6px;
+  }
+
+  .holiday{ position:relative; margin:22px 0 22px 0; }
+  .holiday-marker{
+    position:absolute;
+    right:-2px; top:8px;
+    width:15px;height:15px;
+    border-radius:50%;
+    background:var(--red);
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 2px var(--red);
+  }
+  .holiday-band{
+    margin-right:24px;
+    background:linear-gradient(90deg,#8f1c21,var(--red));
+    color:#fff;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(193,39,45,.25);
+  }
+
+  .exam{ position:relative; margin:22px 0; }
+  .exam-marker{
+    position:absolute;
+    right:-2px; top:8px;
+    width:15px;height:15px;
+    border-radius:50%;
+    background:var(--blue);
+    border:3px solid var(--cream);
+    box-shadow:0 0 0 2px var(--blue);
+  }
+  .exam-band{
+    margin-right:24px;
+    background:#1F3B5C;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:12px;
+    font-size:13.5px;
+    line-height:1.9;
+    box-shadow:0 2px 8px rgba(31,59,92,.25);
+  }
+  .exam-band b{ color:#EADFBB; }
+
+  .final-note{
+    margin:24px 20px 0;
+    text-align:center;
+    background:var(--gold);
+    color:#2b2205;
+    padding:14px 18px;
+    border-radius:12px;
+    font-weight:700;
+    font-size:14px;
+  }
+
+  .sign{ margin:40px 20px 0; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+  .sign div{
+    flex:1; min-width:150px;
+    text-align:center;
+    padding-top:36px;
+    border-top:1.5px solid var(--ink-soft);
+    font-size:13px; color:var(--ink-soft); font-weight:700;
+  }
+
+  @media (max-width:640px){
+    .title-ar{font-size:23px;}
+    .ministry{font-size:16px;}
+    .entry-date{flex:0 0 115px; font-size:12px;}
+    table.weeks{font-size:12.5px;}
+    td.dt{width:120px;}
+    .phase-card{margin-right:14px;}
+    .holiday-band, .exam-band{margin-right:14px;}
+  }
+  @media print{ body{background:#fff;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">المملكة المغربية</div>
+    <div class="ministry">وزارة التربية الوطنية والتعليم الأولي والرياضة</div>
+    <div class="title-ar">التنظيم السنوي للأسابيع الدراسية<br>بمدارس الريادة</div>
+    <div class="subtitle">الموسم الدراسي 2026 / 2027</div>
+  </header>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--green)"></i> فوج الدعم المستهدف</span>
+    <span><i class="dot" style="background:#fff;border:1px solid var(--line)"></i> إرساء التعلمات الجديدة</span>
+    <span><i class="dot" style="background:var(--gold)"></i> التوليف / الدعم / التقويم</span>
+    <span><i class="dot" style="background:var(--red)"></i> العطل المدرسية</span>
+    <span><i class="dot" style="background:var(--blue)"></i> الامتحانات الموحدة</span>
+  </div>
+
+  <div class="entry-block">
+    <h2>انطلاق السنة الدراسية تحت شعار «من أجل مدرسة ذات جودة» — التحاق الموظفين بمقرات عملهم</h2>
+    <div class="entry-row"><div class="entry-date">الثلاثاء 01 شتنبر 2026</div><div class="entry-text">التحاق أطر وموظفي الإدارة التربوية والتدبير، وهيئة التفتيش والتأطير والمراقبة والتقييم، وهيئة متصرف في التربية الوطنية مؤهل، بجميع درجاتهم، بمقرات عملهم ويوقعون محضر الدخول.</div></div>
+    <div class="entry-row"><div class="entry-date">الأربعاء 2 شتنبر 2026</div><div class="entry-text">التحاق أطر هيئة التربية والتعليم، وهيئة الأساتذة الباحثين في التربية والتكوين بمقرات عملهم ويوقعون محضر الدخول.</div></div>
+    <div class="entry-row"><div class="entry-date">الخميس 3 شتنبر 2026</div><div class="entry-text">التحاق تلميذات وتلاميذ التعليم الأولي بمستوييه بالسنة الأولى والثانية من سلك التعليم الابتدائي بأفواجهم.</div></div>
+    <div class="entry-row"><div class="entry-date">الجمعة 4 شتنبر 2026</div><div class="entry-text">التحاق تلميذات وتلاميذ السنة الثالثة والرابعة من سلك التعليم الابتدائي.</div></div>
+    <div class="entry-row"><div class="entry-date">السبت 5 شتنبر 2026</div><div class="entry-text">التحاق تلميذات وتلاميذ السنة الخامسة والسادسة من سلك التعليم الابتدائي.</div></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 1</span><span class="label">فوج الدعم المستهدف</span></div>
+        <table class="weeks">
+          <tr class="support"><td class="wk">أسبوع 1</td><td class="dt">الاثنين 7 شتنبر 2026</td><td class="act">استكمال لوائح مجموعات الاختبار وتحديد المعنيين بالتمرير وبمراسلة التلاميذ نتائج العمليات التنظيمية.</td></tr>
+          <tr class="support"><td class="wk"></td><td class="dt">الثلاثاء 8 شتنبر 2026</td><td class="act">تمرير روائز الموضعة القبلية لفائدة تلاميذ المستويين الخامس والسادس + مسك نتائج الموضعة.</td></tr>
+          <tr class="support"><td class="wk"></td><td class="dt">الأربعاء 9 شتنبر 2026</td><td class="act">تمرير روائز الموضعة القبلية لفائدة تلاميذ المستويين الرابع والثالث + مسك نتائج الموضعة.</td></tr>
+          <tr class="support"><td class="wk"></td><td class="dt">الخميس 10 شتنبر 2026</td><td class="act">تمرير روائز الموضعة القبلية لفائدة تلاميذ المستوى الثاني + مسك نتائج الموضعة.</td></tr>
+          <tr class="support"><td class="wk"></td><td class="dt">الجمعة 11 شتنبر 2026</td><td class="act">تمرير روائز تقييم المكتسبات القبلية لفائدة تلاميذ المستوى الأول + مسك نتائج الموضعة.</td></tr>
+          <tr class="support"><td class="wk"></td><td class="dt">السبت 12 شتنبر 2026</td><td class="act">استصدار مجموعات الدعم المكيف وتوزيع التلاميذ وتوزيع الحصة الخاصة بهذه الفترة.</td></tr>
+          <tr class="support"><td class="wk">أسبوع 2</td><td class="dt">من 14/9 إلى 19/9/2026</td><td class="act">برنامج دعم التعلمات الأساس.</td></tr>
+          <tr class="support"><td class="wk">أسبوع 3</td><td class="dt">من 21/9 إلى 26/9/2026</td><td class="act">برنامج دعم التعلمات الأساس.</td></tr>
+          <tr class="support"><td class="wk">أسبوع 4</td><td class="dt">من 28/9 إلى 3/10/2026</td><td class="act">برنامج دعم التعلمات الأساس.</td></tr>
+          <tr class="support"><td class="wk">أسبوع 5</td><td class="dt">من 5/10 إلى 10/10/2026</td><td class="act">برنامج دعم التعلمات الأساس.</td></tr>
+          <tr class="support"><td class="wk">أسبوع 6</td><td class="dt">من 12/10 إلى 17/10/2026</td><td class="act">تمرير روائز الموضعة البعدية لفائدة التلاميذ والاستفادة من تكوين حول التعليم الصريح.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="holiday">
+      <div class="holiday-marker"></div>
+      <div class="holiday-band">عطلة الفترة البينية الأولى — من 18/10/2026 إلى 25/10/2026</div>
+    </div>
+    <div class="event-tag" style="margin-right:24px">🎉 عيد الوحدة — السبت 31 أكتوبر 2026</div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 2</span><span class="label">التعليم الصريح</span></div>
+        <table class="weeks">
+          <tr class="new"><td class="wk">أسبوع 1</td><td class="dt">من 26/10 إلى 2/11/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 2</td><td class="dt">من 3/11 إلى 10/11/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 3</td><td class="dt">من 11/11 إلى 17/11/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 4</td><td class="dt">من 19/11 إلى 25/11/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="synth"><td class="wk">أسبوع 5</td><td class="dt">من 26/11 إلى 2/12/2026</td><td class="act">مرحلة التوليف والدعم.</td></tr>
+          <tr class="eval"><td class="wk">أسبوع 6</td><td class="dt">من 3/12 إلى 16/12/2026</td><td class="act">مرحلة التقويم.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="event-tag" style="margin-right:24px">🎉 ذكرى المسيرة الخضراء — الجمعة 6 نونبر 2026</div>
+    <div class="event-tag" style="margin-right:24px">🎉 عيد الاستقلال — الأربعاء 18 نونبر 2026</div>
+    <div class="event-tag" style="margin-right:24px">🎉 الكفاءة المهنية — السبت 5 دجنبر 2026</div>
+
+    <div class="holiday">
+      <div class="holiday-marker"></div>
+      <div class="holiday-band">عطلة الفترة البينية الثانية — من 6/12/2026 إلى 13/12/2026</div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 3</span><span class="label">التعليم الصريح</span></div>
+        <table class="weeks">
+          <tr class="new"><td class="wk">أسبوع 1</td><td class="dt">من 17/12 إلى 23/12/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 2</td><td class="dt">من 24/12 إلى 30/12/2026</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 3</td><td class="dt">من 31/12/2026 إلى 7/1/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 4</td><td class="dt">من 8/1 إلى 16/1/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="event-tag" style="margin-right:24px">🎉 فاتح السنة الميلادية — الجمعة 1 يناير 2027</div>
+    <div class="event-tag" style="margin-right:24px">🎉 ذكرى تقديم وثيقة الاستقلال — الاثنين 11 يناير 2027 &nbsp;|&nbsp; فاتح السنة الأمازيغية — الخميس 14 يناير 2027</div>
+
+    <div class="exam">
+      <div class="exam-marker"></div>
+      <div class="exam-band">
+        <b>الامتحان الموحد المحلي:</b> 18 و19 يناير 2027 &nbsp;•&nbsp;
+        <b>عقد مجالس الأقسام:</b> 21 و22 يناير 2027 &nbsp;•&nbsp;
+        <b>توزيع بيانات النقط:</b> 23 يناير 2027
+      </div>
+    </div>
+
+    <div class="holiday">
+      <div class="holiday-marker"></div>
+      <div class="holiday-band">عطلة منتصف السنة الدراسية — من 24/1/2027 إلى 31/1/2027</div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 3 (تتمة)</span><span class="label">التوليف والتقويم</span></div>
+        <table class="weeks">
+          <tr class="synth"><td class="wk">أسبوع 5</td><td class="dt">من 1/2 إلى 6/2/2027</td><td class="act">مرحلة التوليف والدعم.</td></tr>
+          <tr class="eval"><td class="wk">أسبوع 6</td><td class="dt">من 8/2 إلى 13/2/2027</td><td class="act">مرحلة التقويم.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 4</span><span class="label">التعليم الصريح</span></div>
+        <table class="weeks">
+          <tr class="new"><td class="wk">أسبوع 1</td><td class="dt">من 15/2 إلى 20/2/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 2</td><td class="dt">من 22/2 إلى 27/2/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 3</td><td class="dt">من 1/3 إلى 6/3/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 4</td><td class="dt">من 8/3 إلى 13/3/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="synth"><td class="wk">أسبوع 5</td><td class="dt">من 15/3 إلى 20/3/2027</td><td class="act">مرحلة التوليف والدعم.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="holiday">
+      <div class="holiday-marker"></div>
+      <div class="holiday-band">عطلة الفترة البينية الثالثة — من 21/3/2027 إلى 28/3/2027</div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 4 (تتمة)</span><span class="label">التقويم</span></div>
+        <table class="weeks">
+          <tr class="eval"><td class="wk">أسبوع 6</td><td class="dt">من 29/3 إلى 3/4/2027</td><td class="act">مرحلة التقويم.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 5</span><span class="label">التعليم الصريح</span></div>
+        <table class="weeks">
+          <tr class="new"><td class="wk">أسبوع 1</td><td class="dt">من 5/4 إلى 10/4/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 2</td><td class="dt">من 12/4 إلى 17/4/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 3</td><td class="dt">من 19/4 إلى 24/4/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="synth"><td class="wk">أسبوع 4</td><td class="dt">من 26/4 إلى 3/5/2027</td><td class="act">مرحلة التوليف والدعم.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="event-tag" style="margin-right:24px">🎉 عيد الشغل — السبت 1 ماي 2027</div>
+
+    <div class="holiday">
+      <div class="holiday-marker"></div>
+      <div class="holiday-band">عطلة الفترة البينية الرابعة — من 9/5/2027 إلى 16/5/2027</div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 5 (تتمة)</span><span class="label">التقويم</span></div>
+        <table class="weeks">
+          <tr class="eval"><td class="wk">أسبوع 5</td><td class="dt">من 18/5 إلى 24/5/2027</td><td class="act">مرحلة التقويم.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="phase">
+      <div class="phase-marker"></div>
+      <div class="phase-card">
+        <div class="phase-head"><span class="num">المرحلة 6</span><span class="label">التعليم الصريح</span></div>
+        <table class="weeks">
+          <tr class="new"><td class="wk">أسبوع 1</td><td class="dt">من 25/5 إلى 31/5/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 2</td><td class="dt">من 1/6 إلى 7/6/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 3</td><td class="dt">من 8/6 إلى 14/6/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="new"><td class="wk">أسبوع 4</td><td class="dt">من 15/6 إلى 21/6/2027</td><td class="act">إرساء التعلمات الجديدة.</td></tr>
+          <tr class="synth"><td class="wk">أسبوع 5 و6</td><td class="dt">من 22/6 إلى 24/6/2027</td><td class="act">مرحلة التوليف والدعم والتقويم.</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="event-tag" style="margin-right:24px">🏁 انتهاء الدراسة — السبت 26 يونيو 2027</div>
+
+    <div class="exam">
+      <div class="exam-marker"></div>
+      <div class="exam-band">
+        <b>الامتحان الموحد الإقليمي:</b> 25 و26 يونيو 2027 &nbsp;•&nbsp;
+        <b>عقد مجالس الأقسام:</b> 1 و2 يوليوز 2027 &nbsp;•&nbsp;
+        <b>توزيع بيانات النقط:</b> 3 يوليوز 2027
+      </div>
+    </div>
+
+  </div>
+
+  <div class="final-note">📌 توقيع محضر الخروج — السبت 10 يوليوز 2027</div>
+
+  <div class="sign">
+    <div>توقيع السيد(ة) الأستاذ(ة)</div>
+    <div>توقيع السيد(ة) المدير(ة)</div>
+    <div>توقيع السيد(ة) المفتش(ة)</div>
+  </div>
+
+</div>
+</body>
+</html>
